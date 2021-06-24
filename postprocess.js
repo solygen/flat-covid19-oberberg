@@ -9,7 +9,7 @@ const filename = Deno.args[0]
 const records = await readCSV(filename)
 
 // Step 2: build history by adding new and updating existing records
-const allrecords = await readCSV(`data-history.csv`)
+const allrecords = await readCSV(`data-history.csv`) || []
 console.log(records.length, allrecords.length);
 records.forEach(record => {
     const existing = allrecords.find(obj => {
