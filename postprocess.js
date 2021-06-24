@@ -8,6 +8,8 @@ import { readCSV, writeCSV } from 'https://deno.land/x/flat/mod.ts'
 const filename = Deno.args[0]
 const records = await readCSV(filename)
 
+const allrecords = records
+
 // Step 2: build history by adding new and updating existing records
 // const allrecords = await readCSV(`data-history.csv`) || []
 // console.log(records.length, allrecords.length);
