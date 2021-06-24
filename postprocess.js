@@ -9,20 +9,20 @@ const filename = Deno.args[0]
 const records = await readCSV(filename)
 
 // Step 2: build history by adding new and updating existing records
-const allrecords = await readCSV(`data-history.csv`) || []
-console.log(records.length, allrecords.length);
-records.forEach(record => {
-    const existing = allrecords.find(obj => {
-        return String(obj.datum) === String(record.datum)
-    });
-    if (existing) {
-        // update
-        Object.assign(existing, record)
-    } else {
-        // push
-        allrecords.push(record)
-    }
-});
+// const allrecords = await readCSV(`data-history.csv`) || []
+// console.log(records.length, allrecords.length);
+// records.forEach(record => {
+//     const existing = allrecords.find(obj => {
+//         return String(obj.datum) === String(record.datum)
+//     });
+//     if (existing) {
+//         // update
+//         Object.assign(existing, record)
+//     } else {
+//         // push
+//         allrecords.push(record)
+//     }
+// });
 await writeCSV(`data-history.csv`, allrecords)
 
 // Step 3: Filter specific data we want to keep and write to a new CSV file
